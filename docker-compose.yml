@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Serviço do banco de dados MySQL
   mysql:
@@ -50,18 +48,10 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/petshop?useSSL=false&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: petshop
       SPRING_DATASOURCE_PASSWORD: petshop
-      # Variáveis para mostrar os testes ignorados
-      MAVEN_OPTS: "-Dmaven.test.failure.ignore=true -Dorg.slf4j.simpleLogger.defaultLogLevel=info"
     depends_on:
       - mysql
     networks:
       - petshop-network
-    # Garante que o container só inicia quando o MySQL estiver pronto
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://mysql:3306"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
 
 networks:
   petshop-network:

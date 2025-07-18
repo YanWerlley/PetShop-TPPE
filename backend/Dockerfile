@@ -10,7 +10,18 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 COPY --from=build /app/src ./src
 COPY --from=build /app/pom.xml ./pom.xml
-COPY entrypoint.sh /entrypoint.sh
+
+# Criar script de entrypoint diretamente no Dockerfile para evitar problemas de formato
+RUN echo '#!/bin/bash' > /entrypoint.sh && \
+    echo 'set -e' >> /entrypoint.sh && \
+    echo '' >> /entrypoint.sh && \
+    echo '# Esperar o MySQL iniciar' >> /entrypoint.sh && \
+    echo 'echo "Aguardando o MySQL iniciar..."' >> /entrypoint.sh && \
+    echo 'sleep 10' >> /entrypoint.sh && \
+    echo '' >> /entrypoint.sh && \
+    echo '# Iniciar a aplicação' >> /entrypoint.sh && \
+    echo 'echo "Iniciando a aplicação Spring Boot..."' >> /entrypoint.sh && \
+    echo 'java -jar app.jar' >> /entrypoint.sh
 
 # Instalar Maven e curl (necessário para o healthcheck)
 RUN apt-get update && \

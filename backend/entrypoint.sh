@@ -5,8 +5,15 @@ set -e
 echo "Aguardando o MySQL iniciar..."
 sleep 10
 
-# Executar os testes (incluindo os ignorados)
-mvn test -Dtest=HelloWorldControllerTest -Dmaven.test.failure.ignore=true
+# Executar todos os testes
+echo "Executando testes unitários..."
+mvn test -Dtest=*ServicoTest -Dmaven.test.failure.ignore=true
+
+echo "Executando testes parametrizados..."
+mvn test -Dtest=*ParameterizedTest,AnimalServicoTest -Dmaven.test.failure.ignore=true
+
+echo "Executando testes de integração..."
+mvn test -Dtest=*IntegracaoTest -Dspring.profiles.active=test -Dmaven.test.failure.ignore=true
 
 # Iniciar a aplicação
 echo "Iniciando a aplicação Spring Boot..."
