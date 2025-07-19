@@ -9,6 +9,8 @@ Sistema de Pet Shop utilizando Spring Boot, seguindo arquitetura MVC como discut
 
 ## Tecnologias Utilizadas
 
+### Backend
+
 - **Backend**: Spring Boot 3.2.0
 - **Banco de Dados**: 
   - MySQL (produção)
@@ -19,6 +21,14 @@ Sistema de Pet Shop utilizando Spring Boot, seguindo arquitetura MVC como discut
   - JUnit 5
   - Mockito
   - Testes Parametrizados
+
+### Frontend
+
+- React 18
+- TypeScript
+- Styled Components
+- React Router DOM
+- Axios
 
 ## Testes
 
@@ -33,17 +43,36 @@ O projeto inclui 21 testes unitários e parametrizados para os componentes princ
 
 ## Como Executar
 
-### Iniciar o Backend
+### Iniciar a Aplicação Completa (Backend e Frontend)
 
-1. Clone o repositório
-2. Execute o script PowerShell para iniciar o backend:
-```
-.\start-backend.ps1
+Para executar a aplicação completa (backend, frontend, banco de dados e phpMyAdmin), utilize o Docker Compose:
+
+```bash
+docker-compose up -d
 ```
 
-3. Acesse:
-   - Backend API: http://localhost:8080
-   - Documentação Swagger: http://localhost:8080/swagger-ui/index.html
+O primeiro build pode levar alguns minutos, pois o Docker precisa baixar as imagens base e instalar todas as dependências do projeto.
+
+Após a conclusão, você pode acessar:
+
+- Frontend React: http://localhost:3000
+- Backend API: http://localhost:8080
+- phpMyAdmin: http://localhost:8081 (servidor: mysql, usuário: root, senha: root)
+
+### Credenciais de acesso ao frontend
+
+Para fazer login no frontend, use as seguintes credenciais:
+
+- Usuário: admin
+- Senha: admin
+
+### Parando a aplicação
+
+Para parar todos os serviços:
+
+```bash
+docker-compose down
+```
 
 ### Executar Testes
 
@@ -87,7 +116,7 @@ O relatório de cobertura de testes será gerado na pasta `coverage-report` e po
 - `run-service-tests.ps1`: Executa apenas os testes de serviços
 - `run-controller-tests.ps1`: Executa apenas os testes de controladores
 - `run-coverage-report.ps1`: Gera relatório de cobertura de testes com JaCoCo
-- `start-backend.ps1`: Inicia o backend em um container Docker
+- `docker-compose.yml`: Configuração para iniciar toda a aplicação (backend, frontend e banco de dados)
 
 ## Padrão de Commits
 

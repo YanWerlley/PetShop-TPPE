@@ -52,6 +52,20 @@ services:
       - mysql
     networks:
       - petshop-network
+      
+  # Serviço do frontend React com Nginx
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: petshop-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - petshop-network
 
 networks:
   petshop-network:
