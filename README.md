@@ -1,6 +1,6 @@
 # PetShop-TPPE
 
-Sistema de Pet Shop utilizando Spring Boot e React, com arquitetura MVC e deploy completo na AWS. O projeto implementa um backend para gerenciamento de clientes, pets e vacinas, com frontend React e cache Redis.
+Sistema de Pet Shop utilizando Spring Boot e React, com arquitetura MVC e deploy completo na AWS. O projeto implementa um backend para gerenciamento de clientes, pets e vacinas.
 
 ## Documentação
 
@@ -114,17 +114,3 @@ npm install --save-dev selenium-webdriver @types/selenium-webdriver jest @types/
 ```
 
 Além disso, você precisa ter o Google Chrome instalado em seu sistema.
-
-## Executando os Testes
-
-Para executar todos os testes:
-
-```bash
-npm test
-```
-
-Para executar um teste específico:
-
-```bash
-npx jest login.test.ts
-```
