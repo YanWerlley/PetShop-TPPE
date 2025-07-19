@@ -92,3 +92,39 @@ O projeto inclui 21 testes unitários e parametrizados. Execute-os com:
 - `src/components`: Componentes React
 - `src/services`: Serviços para comunicação com a API
 - `src/pages`: Páginas da aplicação
+
+
+### Testes Automatizados com Selenium
+
+Este diretório contém testes end-to-end automatizados usando Selenium WebDriver para testar a interface do usuário do PetShop.
+
+## Estrutura dos Testes
+
+- `setup.ts` - Configuração do WebDriver do Selenium
+- `login.test.ts` - Testes de autenticação
+- `pets.test.ts` - Testes de gerenciamento de pets
+- `consultas.test.ts` - Testes de agendamento e gerenciamento de consultas
+
+## Pré-requisitos
+
+Para executar estes testes, você precisa instalar as seguintes dependências:
+
+```bash
+npm install --save-dev selenium-webdriver @types/selenium-webdriver jest @types/jest ts-jest chromedriver
+```
+
+Além disso, você precisa ter o Google Chrome instalado em seu sistema.
+
+## Executando os Testes
+
+Para executar todos os testes:
+
+```bash
+npm test
+```
+
+Para executar um teste específico:
+
+```bash
+npx jest login.test.ts
+```
