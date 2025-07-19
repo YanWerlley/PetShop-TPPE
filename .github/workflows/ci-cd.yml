@@ -2,7 +2,7 @@ name: PetShop CI/CD
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, master, backup ]
   pull_request:
     branches: [ main, master ]
   workflow_dispatch:
